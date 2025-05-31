@@ -15,10 +15,8 @@
         <label for="name" class="block mb-2 text-sm font-medium dark:text-white">Name</label>
         <input type="text" id="name" name = "name"
             class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+            value = "{{ isset($dashboard) ? $dashboard->name : ''}}"
             required />
-        @if(isset($dashboard))
-        {{$dashboard->name}}
-        @endif
 
         @error('name')
         <div class="text-red-500 text-sm mt-2">
@@ -31,10 +29,8 @@
             class="block mb-2 text-sm font-medium dark:text-white">Description</label>
         <input type="text" id="description" name = "description"
             class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+            value = "{{ isset($dashboard) ? $dashboard->description : ''}}"
             required />
-        @if(isset($dashboard))
-        {{$dashboard->description}}
-        @endif
 
         @error('description')
         <div class="text-red-500 text-sm mt-2">
@@ -46,10 +42,8 @@
         <label for="link" class="block mb-2 text-sm font-medium  dark:text-white">Link</label>
         <input type="text" id="link" name = "link"
             class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+            value = "{{ isset($dashboard) ? $dashboard->link : ''}}"
             required />
-        @if(isset($dashboard))
-        {{$dashboard->link}}
-        @endif
 
         @error('link')
         <div class="text-red-500 text-sm mt-2">
