@@ -27,8 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/dashboard/store', [DashboardController::class, 'store'])->name('dashboard.store');
     Route::get('/dashboard/{id}', [DashboardController::class, 'show'])->name('dashboard.show');
     Route::get('/dashboard/{id}/edit', [DashboardController::class, 'edit'])->name('dashboard.edit');
-    Route::put('/dashboard/{id}', [DashboardController::class, 'update'])->name('dashboard.update');
-    Route::put('/dashboard/{id}', [DashboardController::class, 'disableEnable'])->name('dashboard.disable_enable');
+    Route::put('/dashboard/update/{id}', [DashboardController::class, 'update'])->name('dashboard.update');
+    Route::put('/dashboard/disable-enable/{id}', [DashboardController::class, 'disableEnable'])->name('dashboard.disable_enable');
     Route::delete('/dashboard/{id}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
 
 
