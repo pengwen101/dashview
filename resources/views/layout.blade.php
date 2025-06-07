@@ -57,7 +57,7 @@
                         ">Home</a>
                     <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary"
                         href="{{ route('dashboard.index') }}
-                        {{ request()->routeIs('dashview.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}
+                        {{ request()->routeIs('dashboard.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}
                         ">Dashboard</a>
                     <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary"
                         href="{{ route('user') }}
