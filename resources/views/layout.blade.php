@@ -51,18 +51,15 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden sm:flex gap-8 items-center">
-                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary"
-                        href="{{ route('home') }}
-                        {{ request()->routeIs('home.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}
-                        ">Home</a>
-                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary"
-                        href="{{ route('dashboard.index') }}
-                        {{ request()->routeIs('dashboard.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}
-                        ">Dashboard</a>
-                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary"
-                        href="{{ route('user') }}
-                        {{ request()->routeIs('user.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}
-                        ">Accounts</a>
+                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary
+                    {{ request()->routeIs('home.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}"
+                        href="{{ route('home') }}">Home</a>
+                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary
+                    {{ request()->routeIs('dashboard.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}"
+                        href="{{ route('dashboard.index') }}">Dashboard</a>
+                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary
+                    {{ request()->routeIs('user.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}"
+                        href="{{ route('user') }}">Accounts</a>
                 </div>
 
                 <!-- Desktop Logout -->
