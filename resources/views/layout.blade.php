@@ -78,11 +78,14 @@
             <div id="mobile-menu"
                 class="hidden flex flex-col gap-4 items-center sm:hidden pt-4 border-t border-gray-200 dark:border-gray-700">
                 <a href="{{ route('home') }}"
-                    class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary">Home</a>
+                    class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary
+                    {{ request()->is('/') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}">Home</a>
                 <a href="{{ route('dashboard.index') }}"
-                    class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary">Dashboard</a>
+                    class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary
+                    {{ request()->routeIs('dashboard.*') || request()->routeIs('group.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}">Dashboard</a>
                 <a href="{{ route('user') }}"
-                    class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary">Accounts</a>
+                    class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary
+                    {{ request()->routeIs('user.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}">Accounts</a>
                 @if(session('user'))
                 <a href="{{ route('logout') }}" class="w-full text-center py-2 hover:font-semibold">
                     <button class="button">Logout</button>
