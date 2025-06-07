@@ -80,7 +80,7 @@
 
 
 
-        <div class = "container mx-auto px-20 py-30">
+        <div class = "container mx-auto px-5 md:px-20 py-30">
 
                     @if(session()->has('success'))
 
