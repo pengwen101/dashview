@@ -14,18 +14,21 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
     @yield('library-css')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
-    <div class = "min-h-screen bg-primary">
+    <div class="min-h-screen bg-primary">
 
-        <div id="navbar" class="transition-transform duration-300 ease-in-out border-b border-accent fixed w-full bg-primary px-6 sm:px-10 py-1 z-50">
+        <div id="navbar"
+            class="transition-transform duration-300 ease-in-out border-b border-accent fixed w-full bg-primary px-6 sm:px-10 py-1 z-50">
             <div class="flex justify-between items-center h-20">
-            <!-- Left: Logo -->
+                <!-- Left: Logo -->
                 <div class="text-lg font-bold">
                     Logo TPS
                 </div>
@@ -36,25 +39,34 @@
                     <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"/>
+                            d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                     <!-- Close icon -->
                     <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12"/>
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
 
                 <!-- Desktop Menu -->
                 <div class="hidden sm:flex gap-8 items-center">
-                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary" href="{{ route('home') }}">Home</a>
-                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary" href="{{ route('dashboard.index') }}">Dashboard</a>
-                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary"  href="{{ route('user') }}">Accounts</a>
+                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary"
+                        href="{{ route('home') }}
+                        {{ request()->routeIs('home.') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}
+                        ">Home</a>
+                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary"
+                        href="{{ route('dashboard.index') }}
+                        {{ request()->routeIs('dashview.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}
+                        ">Dashboard</a>
+                    <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary"
+                        href="{{ route('user') }}
+                        {{ request()->routeIs('user.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}
+                        ">Accounts</a>
                 </div>
 
                 <!-- Desktop Logout -->
-                
+
                 <div class="hidden sm:flex items-center">
                     @if(session()->has('email'))
                     <a href="{{ route('logout') }}" class="hover:font-semibold transition duration-300">
@@ -63,13 +75,17 @@
                     @endif
                 </div>
             </div>
-        
+
 
             <!-- Mobile Menu (hidden by default) -->
-            <div id="mobile-menu" class="hidden flex flex-col gap-4 items-center sm:hidden pt-4 border-t border-gray-200 dark:border-gray-700">
-                <a href="{{ route('home') }}" class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary">Home</a>
-                <a href="{{ route('dashboard.index') }}" class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary">Dashboard</a>
-                <a href="{{ route('user') }}" class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary">Accounts</a>
+            <div id="mobile-menu"
+                class="hidden flex flex-col gap-4 items-center sm:hidden pt-4 border-t border-gray-200 dark:border-gray-700">
+                <a href="{{ route('home') }}"
+                    class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary">Home</a>
+                <a href="{{ route('dashboard.index') }}"
+                    class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary">Dashboard</a>
+                <a href="{{ route('user') }}"
+                    class="w-full text-center hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary">Accounts</a>
                 @if(session('user'))
                 <a href="{{ route('logout') }}" class="w-full text-center py-2 hover:font-semibold">
                     <button class="button">Logout</button>
@@ -78,44 +94,39 @@
             </div>
         </div>
 
-
-
-        <div class = "container mx-auto px-5 md:px-20 py-30">
-
-                    @if(session()->has('success'))
-
-        <div class="flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-        <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-        </svg>
-        <span class="sr-only">Info</span>
-        <div>
-            <span class="font-medium">Success alert!</span> {{session()->get('success')}}
-        </div>
-        </div>
-
-        @endif
-
-
-         @if(session()->has('error'))
-
-       <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-        <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-        </svg>
-        <span class="sr-only">Info</span>
-        <div>
-            <span class="font-medium">Danger alert!</span> {{session()->get('error')}}
-        </div>
-        </div>
-
-        @endif
-
+        <div class="container mx-auto px-5 md:px-20 py-30">
+            @if(session()->has('success'))
+            <div class="flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"
+                role="alert">
+                <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Info</span>
+                <div>
+                    <span class="font-medium">Success alert!</span> {{session()->get('success')}}
+                </div>
+            </div>
+            @endif
+            @if(session()->has('error'))
+            <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert">
+                <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                </svg>
+                <span class="sr-only">Info</span>
+                <div>
+                    <span class="font-medium">Danger alert!</span> {{session()->get('error')}}
+                </div>
+            </div>
+            @endif
             @yield('content')
         </div>
     </div>
 
-    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

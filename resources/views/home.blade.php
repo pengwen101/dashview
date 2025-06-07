@@ -11,9 +11,6 @@
         {{$group->name}}
     </div>
 
-
-
-
     <div id="default-carousel" class="relative w-full" data-carousel="static">
         <!-- Carousel wrapper -->
         <div class="relative h-[55vh] overflow-hidden lg:h-[65vh] rounded-lg bg-secondary">
