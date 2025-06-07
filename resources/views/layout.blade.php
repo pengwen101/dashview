@@ -53,7 +53,7 @@
                 <div class="hidden sm:flex gap-8 items-center">
                     <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary"
                         href="{{ route('home') }}
-                        {{ request()->routeIs('home.') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}
+                        {{ request()->routeIs('home.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}
                         ">Home</a>
                     <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary"
                         href="{{ route('dashboard.index') }}
