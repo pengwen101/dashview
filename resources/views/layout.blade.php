@@ -55,7 +55,7 @@
                     {{ request()->is('/') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}"
                         href="{{ route('home') }}">Home</a>
                     <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary
-                    {{ request()->routeIs('dashboard.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}"
+                    {{ request()->routeIs('dashboard.*') || request()->routeIs('group.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}"
                         href="{{ route('dashboard.index') }}">Dashboard</a>
                     <a class="hover:font-semibold hover:text-accent py-2 px-4 transition duration-300 text-primary
                     {{ request()->routeIs('user.*') ? 'bg-accent text-primary font-semibold rounded-full' : '' }}"
